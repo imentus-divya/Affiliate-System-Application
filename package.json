@@ -1,5 +1,6 @@
 {
-  "scripts": {
-
+  "scripts": {},
+  "dependencies": {
+    "stripe": "^13.9.0"
   }
 }
