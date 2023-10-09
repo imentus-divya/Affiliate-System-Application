@@ -4,17 +4,21 @@ let db = null;
 
 let Mongo_DB = "mongodb+srv://divyasoni:imentus%40123@cluster0.vudqnun.mongodb.net/?retryWrites=true&w=majority&appName=AtlasApp"
 async function connect() {
-        mongoose.connect(Mongo_DB, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    })
-    .then(() => {
-    console.log("Mongo db connected");
-    })
-    .catch((err) => {
-    console.log("connection errror ", err);
-    process.exit();
-    });
+    const url = 'mongodb://127.0.0.1:27017';
+    const dbName = 'affiliates';
+
+    const client = new MongoClient(url, { connectTimeoutMS: 5000 });
+
+    try {
+
+        await client.connect();
+
+        db = client.db(dbName);
+        console.log("sucessfully connected to mongodb");
+    } catch (e) {
+        console.error(e);
+        throw new Error('Unable to connect to database');
+    }
 }
 
 function getDB() {
