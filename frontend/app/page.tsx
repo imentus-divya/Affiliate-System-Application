@@ -23,9 +23,9 @@ export default function Home() {
   return (
     
 
-    <main className="flex h-screen w-full main bg-center bg-cover bg-fixed">
+    <main className="flex h-screen w-full main bg-center bg-cover bg-fixed items-center">
 
-  <div className="w-full sm:w-2/3 min-h-screen flex sm:w-1/2 flex-col text-center font-mono justify-center text-white" >
+ <div className="w-full sm:w-2/3 h-1/2 flex sm:w-1/2 flex-col text-center font-mono justify-center text-white  justify-evenly" >
 
     <h1 className="text-3xl sm:text-6xl ">CareerCrafted Learning</h1>
     <h2 className="mt-2 text-lg sm:text-xl">Professional Guidance for a Better You</h2>
@@ -37,8 +37,9 @@ export default function Home() {
     </Link>
 
   </div>
-
+  
 </main>
+
 
   )
 }

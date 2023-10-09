@@ -27,10 +27,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {pathname !== '/dashboard'
+        {/* {pathname !== '/dashboard'
 
           ? (<Nav></Nav>)
-          : ''}
+          : ''} */}
+          <Nav></Nav>
         {children}
         <Toaster />
       </body>
