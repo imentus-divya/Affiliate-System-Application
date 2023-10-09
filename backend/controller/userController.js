@@ -19,7 +19,7 @@ const save= async(req,res,next)=>{
             .json({sucess:false,message:"email is already register"})
         }
 
-        //generate referralId based on email
+        //generate referralId based on email  
 
         let referralId=Crypto.createHash("md5")
         .update(req.body.email)
