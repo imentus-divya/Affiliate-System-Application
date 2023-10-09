@@ -13,6 +13,7 @@ async function connect() {
         await client.connect();
 
         db = client.db(dbName);
+        console.log("sucessfully connected to mongodb");
     } catch (e) {
         console.error(e);
         throw new Error('Unable to connect to database');
