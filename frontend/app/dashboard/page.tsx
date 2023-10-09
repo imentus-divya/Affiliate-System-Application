@@ -100,7 +100,7 @@ export default function Home() {
                                  <div class="p-4 bg-stone-700 rounded-xl">
                                     <div class="font-bold text-xl text-white   leading-none">Good day</div>
                                     <div class="mt-5">
-                                       <button type="button" class="inline-flex items-center justify-center py-2 px-3 rounded-xl bg-white text-gray-800 hover:text-green-500 text-sm font-semibold transition">
+                                       <button type="button" class="inline-flex items-center justify-center py-2 px-3 rounded-xl bg-white text-gray-800 hover:text-violet-800  text-sm font-semibold transition">
                                           Start tracking
                                        </button>
                                     </div>
