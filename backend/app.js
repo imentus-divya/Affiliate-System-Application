@@ -1,5 +1,16 @@
 var express = require('express');
+const bodyParser = require("body-parser");
 var path = require('path');
+var app = express();
+const apiRoutes = require('./routes/apiRoutes');
+
+// ... (other middleware and configurations)
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.use('/api',apiRoutes);
+
+
 
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -7,7 +18,6 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-var app = express();
 
 app.use(logger('dev'));
 app.use(express.json());
