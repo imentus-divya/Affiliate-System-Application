@@ -52,7 +52,59 @@ const save= async(req,res,next)=>{
 
 
 };
+
+
+
+const login = async (req, res) => {
+    const collections = db.getDB().collection("user_collecton");
+    try {
+      // Check if the email is already registered
+      let existingUser = await collections.findOne({ email: req?.body?.email });
+  
+      if (!existingUser) {
+        return res.status(400).json({ succes: false, massage: "User Not found" });
+      }
+      let user = await collections.findOne({
+        email: req?.body?.email,
+        password: req?.body?.password,
+      });
+  
+      if (user) {
+        const payload = {
+          email: user.email,
+          _id: user._id,
+        };
+        const secretKey = rs.generate();
+        const token = jwt.sign(payload, secretKey, { expiresIn: "3h" });
+        res
+          .status(200)
+          .json({
+            succes: true,
+            message: "User login  successfully",
+            user: { ...user, token },
+          });
+      } else {
+        res
+          .status(200)
+          .json({ succes: false, message: "Password is not correct" });
+      }
+    } catch (e) {
+      res.status(500).json("Something went wrong");
+    }
+  };
+
+
+  // const link_gene= async(req,res,next)=>{
+  //     console.log("request",req);
+  //     try{
+
+  //     }catch(e){
+
+  //     }
+  // }
+  
 module.exports={
     save,
-    
+    login,
+    //linkGene,
 };
