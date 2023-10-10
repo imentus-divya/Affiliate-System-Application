@@ -5,8 +5,8 @@ const Crypto = require('crypto');
 const userController=require('../controller/userController')
 
 router.post('/save',userController.save);
-//router.post('/login',userController.login);
-
+router.post('/login',userController.login);
+//router.get('/track-link',userController.trackLink);
 /* GET users listing. */
 // router.get('/', function(req, res, next) {
 //   res.send('respond with a resource');
