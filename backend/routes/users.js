@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('./mongodb');
 const Crypto = require('crypto');
-const userController=require('../controller/userController')
+const userController=require('../controllers/userControllers');
 
 router.post('/save',userController.save);
 router.post('/login',userController.login);

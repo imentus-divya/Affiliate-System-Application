@@ -19,7 +19,7 @@ async function connect() {
         console.log("sucessfully connected to mongodb");
     } catch (e) {
         console.error(e);
-        throw new Error('Unable to connect to database');
+        
     }
 }
 

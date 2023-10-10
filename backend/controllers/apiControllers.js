@@ -10,20 +10,15 @@ const stripe = require("stripe")(SECRET_KEY);
 // API logic here
 exports.createPayment = async (req, res) => {
   try {
+    const { stripeEmail, stripeToken, name, address } = req.body;
+
     // Create a customer with the provided email and source (Stripe token)
     const customer = await stripe.customers.create({
-      email: req.body.stripeEmail,
       source: req.body.stripeToken,
-      name: "Rupali Solanki",
-      address: {
-        line1: "23 Mountain Valley New Delhi",
-        postal_code: "11092",
-        city: "New Delhi",
-        state: "Delhi",
-        country: "India",
-      },
+      email: stripeEmail,
+      name: name,
+      address: address,
     });
-
 
     // Create a PaymentIntent with the customer
     const paymentIntent = await stripe.paymentIntents.create({
@@ -40,3 +35,7 @@ exports.createPayment = async (req, res) => {
     res.send(err.message);
   }
 };
+
+
+
+
